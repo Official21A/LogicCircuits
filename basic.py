@@ -2,7 +2,11 @@
 number1 = input("Enter A >> ")
 number2 = input("Enter B >> ")
 
-
+if not "." in number1:
+	number1 += "."
+if not "." in number2:
+	number2 += "."
+	
 temp1 = number1.split(".")
 temp2 = number2.split(".")
 
