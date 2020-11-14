@@ -2,7 +2,7 @@
 # into base 2 ( binary ) numbers.
   
 
-def to_bin(number, places = 3): 
+def to_bin(number, places=3): 
   
     real, dec = number.split(".") 
 

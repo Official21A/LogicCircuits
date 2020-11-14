@@ -1,6 +1,8 @@
 # this program, gets two numbers in binary format and then 
 # compares them, just like the circuits in your system do.
 
+from binary import to_bin
+
 
 # numbers_input
 number1 = input("Enter A >> ")
@@ -11,6 +13,9 @@ if not "." in number1:
 	number1 += "."
 if not "." in number2:
 	number2 += "."
+
+number1 = to_bin(number1, places=5)
+number2 = to_bin(number2, places=5)
 
 # seperate the float part from real part	
 temp1 = number1.split(".")
