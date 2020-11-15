@@ -11,14 +11,14 @@ total_len=8
 
 for (( n=0; n<$total_len; n++ ))
 do
-  python3 basic.py
-  echo ${input_sires_1[$n]}
-  if ! [[ $( echo ${input_sires_2[$n]} ) = ${outputs[$n]} ]]; then
-    let percent=$n / $total_len
-    let precent=precent/100
-    echo "Program faild at $percent %"
-    exit -1
+  res=$( python3 basic.py ${input_sires_1[$n]} ${input_sires_2[$n]} )
+  if ! [[ $res = ${outputs[$n]} ]]; then
+    percent=$((  ($n+1) * 100 / $total_len  ))
+    echo "Program faild at $percent % ::"
+    echo $n
+    echo GOT = $res
+    echo  EXPECTED = ${outputs[$n]}
   fi
 done
 
-echo "100% corrent."
+echo "100% complete testing."
