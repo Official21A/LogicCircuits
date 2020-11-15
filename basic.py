@@ -19,8 +19,8 @@ if not "." in number1:
 if not "." in number2:
 	number2 += "."
 
-number1 = to_bin(number1, places=5)
-number2 = to_bin(number2, places=5)
+number1 = to_bin(number1)
+number2 = to_bin(number2)
 
 # seperate the float part from real part	
 temp1 = number1.split(".")

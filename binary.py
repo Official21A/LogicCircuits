@@ -2,7 +2,7 @@
 # into base 2 ( binary ) numbers.
   
 
-def to_bin(number, places=3): 
+def to_bin(number, places=20): 
   
     real, dec = number.split(".") 
 
@@ -20,6 +20,9 @@ def to_bin(number, places=3):
         real, dec = str((decimal_converter(dec)) * 2).split(".") 
         dec = int(dec) 
         res += real 
+        
+        if dec == 0:
+            break
   
     return res 
   
