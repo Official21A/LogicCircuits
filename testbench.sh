@@ -1,11 +1,16 @@
 #!/usr/bin/bash
 
-echo "Test start ...."
+# This is a test bench for our program that checks all of the
+# cases that our program should handle.
+
+echo "Hello $(whoami)"
+echo ">>" $(date "+ %Y-%m-%d %H:%M:%S")
+echo ">> Test start ...."
 
 input_sires_1=("2" "12" "32" "12." "12.2" "13.6" "13.222233" "13.0")
 input_sires_2=("2" "10" "33" "12.0" "12.22" "13.8" "13.232233" "13.001")
 
-outputs=("A_EQ_B" "A_GT_B" "A_LT_B" "A_EQ_B" "A_LT_B" "A_LT_B" "A_LT_B" "A_LT_B")
+outputs=("A_EQ_B" "A_GT_B" "A_LT_B" "A_EQ_B" "A_LT_B" "A_LT_B" "A_EQ_B" "A_LT_B")
 
 total_len=8
 
@@ -18,7 +23,9 @@ do
     echo $n
     echo GOT = $res
     echo  EXPECTED = ${outputs[$n]}
+    sleep 3
   fi
 done
 
-echo "100% complete testing."
+echo ">>" $(date "+ %Y-%m-%d %H:%M:%S")
+echo ">> 100% complete testing."
