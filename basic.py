@@ -2,11 +2,16 @@
 # compares them, just like the circuits in your system do.
 
 from binary import to_bin
+import sys
 
-
-# numbers_input
-number1 = input("Enter A >> ")
-number2 = input("Enter B >> ")
+if len(sys.argv) == 3:
+	# command input for testbench
+	number1 = sys.argv[1]
+	number2 = sys.argv[2]
+else:
+	# numbers_input
+	number1 = input("Enter A >> ")
+	number2 = input("Enter B >> ")
 
 # add float part
 if not "." in number1:
