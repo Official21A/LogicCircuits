@@ -2,6 +2,7 @@
 # compares them, just like the circuits in your system do.
 
 from binary import to_bin
+from logic import and_gate, or_gate, xor_gate
 import sys
 
 if len(sys.argv) == 3:
@@ -64,10 +65,12 @@ list1 += [number1_float[i] for i in range(len(number1_float))]
 list2 += [number2_float[i] for i in range(len(number2_float))]
 
 # next we iterate throught numbers parts to compare theme
-flag = True
+size = len(list1)
 carry_out = 0
+list1.reverse()
+list2.reverse()
 output = []
-for i in range(len(list1)-1,-1):
+for i in range(size):
 
 	if list1[i] == ".":
 		output.append(".")
@@ -80,11 +83,11 @@ for i in range(len(list1)-1,-1):
 	xyand = and_gate(x,y)
 
 	s = xor_gate(carry_out, xyxor)
-	c = or_gate(xyand, and_gate(carry_out, xyand))
+	c = or_gate(xyand, and_gate(carry_out, xyxor))
 
 	output.append(str(s))
 
-	if (i + 1 == len(list1)):
+	if (i + 1 == size):
 		if c == carry_out:
 			print(">> valid")
 		else:
@@ -92,4 +95,6 @@ for i in range(len(list1)-1,-1):
 
 	carry_out = c
 
-print(reverse(output), sep="")
+
+output.reverse() 
+print(*output, sep="")
